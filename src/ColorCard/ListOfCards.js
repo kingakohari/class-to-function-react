@@ -11,11 +11,11 @@ const CardList2 = (props) => {
     useEffect(() => {
         setResults(colors.filter(
           (color) =>
-            color.name.includes(props.search) ||
-            color.hex.includes(props.search)
+            color.name.toLowerCase().includes(props.search.toLowerCase()) ||
+            color.hex.toLowerCase().includes(props.search.toLowerCase())
           ) 
         );
-    },[]);
+    },[props.search]);
 
     return (
       <div className="container">

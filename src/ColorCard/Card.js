@@ -1,14 +1,7 @@
 import React, { useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-
-const Card2 = (props) => {
-
-    const theme = {
-        backgroundColor: props.color.hex
-      };
-
-    const Div = styled.div`
+const Div = styled.div`
       width: 100%;
       height: 150px;
       border: 1px solid black;
@@ -18,23 +11,27 @@ const Card2 = (props) => {
         props.theme.backgroundColor === "#000000" ? "white" : "black"};
     `;
 
-    useEffect(() => {
+Div.defaultProps = {
+      theme: { color: 0xffffff, backgroundColor: "#fff" }
+}
 
-      Div.defaultProps = {
-        theme: { color: 0xffffff, backgroundColor: "#fff" }
-      }
-    },[]);
+const Card2 = (props) => {
 
-    return (
-      
-      <ThemeProvider theme={theme}>
-          <Div>
-            <h1>{props.color.name}</h1>
-          </Div>
-      </ThemeProvider>
+  const theme = {
+      backgroundColor: props.color.hex
+    };
 
-    )
-  }
+
+  return (
+    
+    <ThemeProvider theme={theme}>
+        <Div>
+          <h1>{props.color.name}</h1>
+        </Div>
+    </ThemeProvider>
+
+  )
+}
 
 export default Card2
 

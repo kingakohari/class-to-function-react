@@ -17,16 +17,16 @@ const App2 = () => {
     useEffect(() => {
       document.addEventListener("click", welcome);
       
-      return() => {
+    /*   return() => {
         document.removeEventListener("click", welcome);
-      }
+      } */
 
     },[]);
 
     
     return (
       <div>
-          <Searchbar2 search={setSearch} />
+          <Searchbar2 setSearch={setSearch} />
           <CardList2 search={search} />
       </div>
       
